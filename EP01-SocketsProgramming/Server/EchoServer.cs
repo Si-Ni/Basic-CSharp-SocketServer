@@ -35,11 +35,13 @@ namespace Server {
                 using var stream = new NetworkStream(clientSocket, true); 
                 var buffer = new byte[1024];
                 do {
-                    int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length).ConfigureAwait(false);
-
-                    if(bytesRead == 0)
+                    int bytesRead;
+                    try {
+                        bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length).ConfigureAwait(false);
+                    }
+                    catch(System.IO.IOException) {
                         break;
-
+                    }
                     await stream.WriteAsync(buffer, 0, bytesRead).ConfigureAwait(false);
                 } while(true);
             } while(true);

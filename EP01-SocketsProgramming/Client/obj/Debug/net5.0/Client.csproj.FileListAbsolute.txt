@@ -17,3 +17,4 @@ C:\Users\sin\Projekte\C#\SocketProgramming\EP01-SocketsProgramming\Client\obj\De
 C:\Users\sin\Projekte\C#\SocketProgramming\EP01-SocketsProgramming\Client\obj\Debug\net5.0\ref\Client.dll
 C:\Users\sin\Projekte\C#\SocketProgramming\EP01-SocketsProgramming\Client\obj\Debug\net5.0\Client.pdb
 C:\Users\sin\Projekte\C#\SocketProgramming\EP01-SocketsProgramming\Client\obj\Debug\net5.0\Client.genruntimeconfig.cache
+C:\Users\sin\Projekte\C#\SocketProgramming\EP01-SocketsProgramming\Client\bin\Debug\net5.0\Newtonsoft.Json.dll

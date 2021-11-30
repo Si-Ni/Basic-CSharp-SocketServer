@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "5/AYt7T+ry4w6NYzJuASq1NcVIrpYYe1LwZ9AIkEH1L6jqGSEmRPdyVK+QqCupDyccw4sLnUCUKSCCuRZdZzMw==",
+  "dgSpecHash": "zxA2Zz4V5Fxjw5OU7Yv9QSwcREaVfY3a1PTKABnLr+3kiXRcKwxBi74+k+OVr0InC6QBzCh0vZY/hTQola91CQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\sin\\Projekte\\C#\\SocketProgramming\\EP01-SocketsProgramming\\Shared\\Shared.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\sin\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
