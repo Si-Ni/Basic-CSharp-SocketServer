@@ -28,9 +28,13 @@ namespace Client {
             Console.ReadKey();
 
             var endpoint = new IPEndPoint(IPAddress.Loopback, 3000);
-            var socket = new Socket(endpoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            socket.Connect(endpoint);
-            var networkStream = new NetworkStream(socket, true);
+
+            //var channel = new ClientChannel<JsonMessageProtocol, JObject>();
+            var channel = new ClientChannel<XmlMessageProtocol, XDocument>();
+
+            channel.OnMessage(OnMessage);
+
+            await channel.ConnectAsync(endpoint).ConfigureAwait(false);
 
             var message = new Message {
                 IntProperty = 404,
@@ -40,19 +44,21 @@ namespace Client {
             Console.WriteLine("Sending");
             Print(message);
 
-            var protocol = new XmlMessageProtocol();
-            //var protocol = new JsonMessageProtocol();
-            await protocol.SendAsync(networkStream, message).ConfigureAwait(false);
-
-            var responseMsg = await protocol.ReceiveAsync(networkStream).ConfigureAwait(false);
-
-            var response = Convert(responseMsg);
-
-            Console.WriteLine("Received");
-            Print(response);
-
+            await channel.SendAsync(message).ConfigureAwait(false);
 
             Console.ReadKey();
+        }
+
+        static Task OnMessage(JObject jObject) {
+            Console.WriteLine("Received JObject Message");
+            Print(Convert(jObject));
+            return Task.CompletedTask;
+        }
+        
+        static Task OnMessage(XDocument xDocument) {
+            Console.WriteLine("Received xDocument Message");
+            Print(Convert(xDocument));
+            return Task.CompletedTask;
         }
 
         static Message Convert(JObject jObject)
